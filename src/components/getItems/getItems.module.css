@@ -1,0 +1,32 @@
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.container{
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.cardCont{
+    max-width: 220px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container{
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .cardsContainer{
+        justify-content: center;
+    }
+}
