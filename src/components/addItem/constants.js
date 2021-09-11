@@ -6,7 +6,6 @@ export const itemValues = [
     { label: "weight", type: "number" }, 
     { label: "start date", type: "date" }, 
     { label: "end date", type: "date" }, 
-    { label: "quantity", type: "number" }
 ];
 
 export const initialValues = {
@@ -15,7 +14,6 @@ export const initialValues = {
     weight: '',
     'start date': '',
     'end date': '',
-    quantity: 1,
 }
 
 export const validationSchema = Yup.object().shape({
@@ -24,5 +22,4 @@ export const validationSchema = Yup.object().shape({
     weight: Yup.number().typeError('must be number').required('weight is required'),
     'start date': Yup.date().typeError('must be vaild date'),
     'end date': Yup.date().typeError('must be vaild date'),
-    quantity: Yup.number().typeError('must be number').required('weight is required'),
 });
