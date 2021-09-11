@@ -1,22 +1,14 @@
 
 
-export const getProbability = (weight, list) => {
-    let weightCount = 0
-    let allItemsCount = 0
-    list.forEach((item) => {
-        allItemsCount += item.quantity; 
-        if (item.weight === weight) {
-            weightCount += item.quantity;
-        }
-    })
-    return (weightCount / allItemsCount * 100).toFixed(2) + "%";
+export const getProbability = (weight, allWeight) => {
+    return (weight / allWeight * 100).toFixed(2) + "%";
 }
 
 const getRandomNumber = (maxIndex) => {
     return Date.now() % maxIndex
 }
 
-export const getRandomItemsWithProbability = (list) => {
+export const getRandomItemsWithProbability = (list, allWeight) => {
     const randomItems = {};
     const len = list.length;
     do {
@@ -24,7 +16,7 @@ export const getRandomItemsWithProbability = (list) => {
         if (randomItems.hasOwnProperty(randomIndex)) continue;
         randomItems[randomIndex] = {
                 ...list[randomIndex],
-                probability: getProbability(list[randomIndex].weight, list)
+                probability: getProbability(list[randomIndex].weight, allWeight)
             }
     } while (Object.values(randomItems).length !== 5)
     return Object.values(randomItems);
